@@ -10,3 +10,11 @@ jobs:
       - run: npm install
       - run: npm run fetch
       - run: npm run build
+      - run: "find -maxdepth 1 ! -name public ! -name .git -exec rm -rv {} \\;"
+      - run: "mv public/* . && rm -rf public"
+      - run: |
+          git add .
+          git config --global user.email "releasebot@dev.com"
+          git config --global user.name "Release Bot"
+          git commit -m "publish new version"
+          git push origin gh-pages --force
