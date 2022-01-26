@@ -7,6 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - run: git symbolic-ref HEAD refs/heads/gh-pages && rm .git/index 
       - run: npm install
       - run: npm run fetch
       - run: npm run build
