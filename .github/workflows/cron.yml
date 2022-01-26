@@ -8,5 +8,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
       - run: npm install
-      - run: npm fetch
-      - run: npm build
+      - run: npm run fetch
+      - run: npm run build
