@@ -1,0 +1,12 @@
+name: "Fetch and build new version"
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm install
+      - run: npm fetch
+      - run: npm build
